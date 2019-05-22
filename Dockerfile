@@ -3,7 +3,10 @@ WORKDIR /app
 COPY package.json .
 RUN npm install
 COPY . .
-RUN npm run build
+RUN  npm config set registry https://registry.npm.taobao.org --global && \
+     npm config set disturl https://npm.taobao.org/dist --global && \
+     npm install yarn -g && \
+     npm install && npm run build
 
 FROM nginx:latest
 COPY nginx.conf /etc/nginx
