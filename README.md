@@ -1,29 +1,11 @@
 # qx-login
 
-## Project setup
-```
-npm install
-```
+## 单点登录页面
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+docker镜像构建
 
-### Compiles and minifies for production
-```
-npm run build
-```
+> docker build -t qx-login .
 
-### Run your tests
-```
-npm run test
-```
+docker容器启动
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+ > docker run -d --name qx-login -p 8080:80 qx-login
