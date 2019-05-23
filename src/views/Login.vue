@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h2>Vue登录界面</h2>
     <form action="/auth/authentication/form" method="post">
       <table>
           <tr>

@@ -1,12 +1,8 @@
 FROM node:latest as builder
 WORKDIR /app
-COPY package.json .
-RUN npm install
-COPY . .
-RUN  npm config set registry https://registry.npm.taobao.org --global && \
-     npm config set disturl https://npm.taobao.org/dist --global && \
-     npm install && npm run build
+COPY /dist .
 
 FROM nginx:latest
 COPY nginx.conf /etc/nginx
-COPY --from=builder /app/dist /usr/share/nginx/html
+# 打包后的文件夹放到/data/qx-login/要和ngnix一一对应
+COPY --from=builder /app /data/qx-login/
